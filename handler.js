@@ -4,8 +4,14 @@ const xml2json = require('simple-xml2json');
 
 const app = new alexa.app('ttc');
 
+const agency = 'ttc';
+// from list of routes: http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=ttc
+const stopTag = 6459;
+// from list of stops: http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=ttc&r=505
+const routeId = 505;
+
 const getNextStreetCar = (req, res) => {
-  axios.get('http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=ttc&s=6459&r=505')
+  axios.get(`http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=${agency}&s=${stopTag}&r=${routeId}`)
     .then((response) => {
       const json = xml2json.parser(response.data);
       const firstStreetCar = json.body.predictions.direction.prediction[0];
