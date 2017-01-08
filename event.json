@@ -1,0 +1,10 @@
+{
+  "request": {
+    "type": "IntentRequest",
+    "intent": {
+      "name": "GetNextStreetCar",
+      "slots": {}
+    }
+  },
+  "version": "1.0"
+}
