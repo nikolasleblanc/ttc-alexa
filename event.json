@@ -2,8 +2,25 @@
   "request": {
     "type": "IntentRequest",
     "intent": {
-      "name": "GetNextStreetCar",
-      "slots": {}
+      "name": "GetNextStreetCarWithIntersection",
+      "slots": {
+        "StreetTwo": {
+          "name": "StreetTwo",
+          "value": "jarvis"
+        },
+        "RouteNumber": {
+          "name": "RouteNumber",
+          "value": "505"
+        },
+        "Direction": {
+          "name": "Direction",
+          "value": "eastbound"
+        },
+        "StreetOne": {
+          "name": "StreetOne",
+          "value": "Dundas"
+        }
+      }
     }
   },
   "version": "1.0"
