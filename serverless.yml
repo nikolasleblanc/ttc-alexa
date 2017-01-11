@@ -8,7 +8,7 @@ provider:
 
 functions:
   pop:
-    handler: handler.ttc
+    handler: alexa.ttc
     events:
       - alexaSkill
 
