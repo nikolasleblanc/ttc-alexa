@@ -5,7 +5,9 @@ const addTo = (app) => {
     {
       'slots': {},
       'utterances': [
-        'When is the next streetcar coming'
+        'When {is|} the next streetcar {is|} coming',
+        'How long {till|until} the next streetcar',
+        'Can I make the next streetcar'
       ]
     },
     ttc.getNextStreetCarDefault
@@ -20,8 +22,7 @@ const addTo = (app) => {
         "Direction": "DIRECTION"
       },
       'utterances': [
-        'When is the next {-|Direction} {-|RouteNumber} coming to {-|StreetOne} and {-|StreetTwo}',
-        'Hi {-|Direction}'
+        'About the {-|RouteNumber} {-|Direction} at {-|StreetOne} and {-|StreetTwo}'
       ]
     },
     ttc.getNextStreetCarWithIntersection

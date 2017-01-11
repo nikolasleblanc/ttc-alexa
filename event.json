@@ -14,7 +14,7 @@
         },
         "Direction": {
           "name": "Direction",
-          "value": "eastbound"
+          "value": "east"
         },
         "StreetOne": {
           "name": "StreetOne",
