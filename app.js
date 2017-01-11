@@ -3,6 +3,28 @@ const utils = require('./utils.js');
 
 const agency = 'ttc';
 
+const getCanIMakeTheNextStreetCar = (req, res) => {
+  // from list of routes: http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=ttc
+  const stopTag = 6459;
+  // from list of stops: http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=ttc&r=505
+  const routeId = 505;
+  utils.getPrediction(agency, stopTag, routeId)
+    .then((response) => {
+      const json = xml2json.parser(response.data);
+      const streetCars = json.body.predictions.direction.prediction.filter((streetcar) => {
+        return streetcar.minutes >= 5 && streetcar.minutes <= 7;
+      });
+      const message = streetCars.length ?
+        `You're in luck killer, there's a streetcar with your name on it ${streetCars[0].minutes} away` :
+        `Nope. Looks like you're walking.`;
+      res.say(message);
+      res.send();
+    })
+    .catch(apologize(res));
+
+  return false;
+};
+
 const getNextStreetCarDefault = (req, res) => {
   // from list of routes: http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=ttc
   const stopTag = 6459;
@@ -62,5 +84,6 @@ const sayNextStreetCar = (first, second, res) => {
 
 module.exports = {
   getNextStreetCarDefault: getNextStreetCarDefault,
-  getNextStreetCarWithIntersection: getNextStreetCarWithIntersection
+  getNextStreetCarWithIntersection: getNextStreetCarWithIntersection,
+  getCanIMakeTheNextStreetCar: getCanIMakeTheNextStreetCar
 };

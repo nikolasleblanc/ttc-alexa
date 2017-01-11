@@ -11,9 +11,21 @@ that hard coded stop.
 
 Utterances include, "Alexa, ask ttc...":
 
-- 'When {is|} the next streetcar {is|} coming',
-- 'How long {till|until} the next streetcar',
-- 'Can I make the next streetcar' (going to make a time limit based one for this)
+- When {is|} the next streetcar {is|} coming
+- How long {till|until} the next streetcar
+
+Note: {is|} is optional, {till|until} is either or.
+
+### University and Dundas (Eastbound), 5 to 7 minutes away
+
+This one was a little specific, Steph wanted to know if there'd be a streetcar
+at the stop within the range that she could walk to it, so that she could either
+hustle to get there in time or just head to the subway station instead.
+
+Utterances include, "Alexa, ask ttc...":
+
+- {Can I|If I can} make the next streetcar
+- If I'm {gonna|going to} make it
 
 ### Stops by route number, direction, and intersection
 
@@ -36,7 +48,9 @@ Working on it. Note that with chatskills, it's also strangely case sensitive abo
 
 To deploy to lambda, run `serverless deploy`.
 
-To output the schema and intents, run `npm run output`.
+To output the schema and intents, run `npm run output`. This will spit out the schema which you can copy
+and paste into your skill's configuration on Amazon's Developer page, and it will also spit out the 
+utterances that your app will accept, which you can also copy and paste onto the same page.
 
 ## Todos
 

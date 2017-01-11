@@ -6,11 +6,21 @@ const addTo = (app) => {
       'slots': {},
       'utterances': [
         'When {is|} the next streetcar {is|} coming',
-        'How long {till|until} the next streetcar',
-        'Can I make the next streetcar'
+        'How long {till|until} the next streetcar'
       ]
     },
     ttc.getNextStreetCarDefault
+  );
+
+  app.intent('GetCanIMakeTheNextStreetCar',
+    {
+      'slots': {},
+      'utterances': [
+        '{Can I|If I can} make the next streetcar',
+        'If I\'m {gonna|going to} make it'
+      ]
+    },
+    ttc.getCanIMakeTheNextStreetCar
   );
 
   app.intent('GetNextStreetCarWithIntersection',
